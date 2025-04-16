@@ -155,6 +155,7 @@ class Net(nn.Module):
             pooling='avg',
             normalization='l1'
     ):
+
         super().__init__()
         self.text_process = text_preprocess(768, hidden_dim)
         self.restormerca1 = restormer_cablock(hidden_dim=hidden_dim, image2text_dim=image2text_dim)

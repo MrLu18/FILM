@@ -15,8 +15,8 @@ warnings.filterwarnings('ignore')  # 不显示warnings
 import time
 from tqdm import tqdm
 
-task_name = 'IVF'
-dataset_name = 'MSRS'
+task_name = 'MEF'
+dataset_name = 'MEFB'
 
 from utils.H5_read import H5ImageTextDataset
 testloader = DataLoader(H5ImageTextDataset(os.path.join('VLFDataset_h5', dataset_name+'_test.h5')), batch_size=1, shuffle=True,

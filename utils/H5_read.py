@@ -8,13 +8,13 @@ class H5ImageTextDataset(Dataset):
 
     def __len__(self):
         with h5py.File(self.h5_file_path, 'r') as h5_file:
-            return len(h5_file['imageA'])
+            return len(h5_file['imageA']) #返回样本总数
 
     def __getitem__(self, idx):
         with h5py.File(self.h5_file_path, 'r') as h5_file:
             group_names = list(h5_file.keys())
             sample_name = list(h5_file[group_names[0]].keys())[idx]
-            imageA = torch.from_numpy(h5_file['imageA'][sample_name][()])
+            imageA = torch.from_numpy(h5_file['imageA'][sample_name][()]) #读取imageA数据并转换为pytorch张量 后者一样
             imageB = torch.from_numpy(h5_file['imageB'][sample_name][()])
             text = torch.from_numpy(h5_file['text'][sample_name][()])
             return imageA, imageB, text, sample_name
